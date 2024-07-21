@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<h1 style="color:brown;">Dãy fibonacci</h1>
+<body>
+<br> Nhập số lượng trong dãy số fibonacci <input type="number" id="fibonacci" placeholder="Nhập 1 số"> </br>
+<br>
+<button style="width:130px; height:30px" onclick="dayfibo()"> Hiện dãy</button>
+<br>
+<p id="tong"></p>
+<p id="day"> 1<br>1<br>2<br>...</br> </p>
+</body>
+<script>
+    let a = 1;
+    let b = 1;
+    let next;
+    function dayfibo() {
+        let fibo = +document.getElementById("fibonacci").value
+        if (fibo === 1){
+            document.getElementById("day").innerHTML = "Dãy fibonacci 1 số là: 1";
+            document.getElementById("tong").innerHTML = " Tổng 1 số fibonacci đầu tiên là: 1";
+
+        }
+        if (fibo === 2){
+            document.getElementById("day").innerHTML = "Dãy fibonacci 2 số là: 1 1";
+            document.getElementById("tong").innerHTML = " Tổng 2 số fibonacci đầu tiên là: 2";
+        }
+        let tong = 2;
+        let result = ""
+        for (let i = 3; i <= fibo; i++) {
+            next = a+b;
+            a = b;
+            b = next;
+            result += next + "<br>"
+            tong += next;
+            document.getElementById("day").innerHTML = " Dãy fibonacci " + i + " số là: <br> 1 <br >1 <br>"+result
+            document.getElementById("tong").innerHTML = " Tổng "+fibo+" số fibonacci đầu tiên là: "+tong;
+        }
+        a=1;
+        b=1;
+    }
+</script>
+</html>
